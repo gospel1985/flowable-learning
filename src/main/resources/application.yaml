@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    jdbcUrl: jdbc:h2:mem:flowable;DB_CLOSE_DELAY=1000
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+#    jdbcUrl: <SQLServer JDBC URL PLACEHOLDER>
+#    username: <SQLServer Username>
+#    password: <SQLServer Password>
+#    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver

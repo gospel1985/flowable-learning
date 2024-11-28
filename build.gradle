@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.flowable.demo'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// (Note that Spring dependency versions are managed by the Spring 'dependency-management' plugin.)
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	// Use Log4J2, the successor to Log4J and SLF4J.
+//	implementation "org.springframework.boot:spring-boot-starter-log4j2"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"// Swagger REST UI:
+	// https://www.baeldung.com/spring-rest-openapi-documentation
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
+
+	implementation "org.projectlombok:lombok:1.18.36"
+
+	implementation "org.flowable:flowable-spring-boot-starter:7.1.0"
+	implementation "org.flowable:flowable-spring-boot-starter-rest:7.1.0"
+
+	implementation "com.h2database:h2:2.3.232"
+	implementation "com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
